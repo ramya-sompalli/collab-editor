@@ -1,4 +1,4 @@
-# 💻 CollabEditor — Real-Time Collaborative Code Editor
+#  CollabEditor — Real-Time Collaborative Code Editor
 
 ![Python](https://img.shields.io/badge/Python-3.11-blue?logo=python)
 ![FastAPI](https://img.shields.io/badge/FastAPI-0.100+-green?logo=fastapi)
@@ -11,32 +11,31 @@
 
 ---
 
-## 🌟 Live Demo
-
-> Open two browser tabs, join the same room, and start coding together in real time!
+##  Live Demo
+ https://code-together-editor.netlify.app
 
 ---
 
-## ✨ Features
+##  Features
 
 | Feature | Description |
 |---|---|
-| 🔐 **Authentication** | Secure JWT-based register & login system |
-| 🏠 **Room System** | Create rooms, invite others via Room ID |
-| ⚡ **Real-Time Editing** | Simultaneous editing with Operational Transformation (OT) |
-| 👥 **User Presence** | See who is online with colored badges |
-| 💬 **Live Chat** | Real-time chat panel alongside the editor |
-| 📁 **File Tree** | Create, switch and delete multiple files per room |
-| ▶️ **Code Execution** | Run Python and JavaScript code directly in the browser |
-| 🌐 **16 Languages** | Syntax highlighting for Python, JS, TS, Java, C++, Go, Rust and more |
-| 💾 **Version Snapshots** | Save and restore previous versions of your code |
-| 🕓 **Version History** | Browse and restore past snapshots |
-| 🟢 **Auto-Reconnect** | WebSocket auto-reconnects on disconnect |
-| 📋 **Room Sharing** | Copy and share Room ID with one click |
+|  **Authentication** | Secure JWT-based register & login system |
+|  **Room System** | Create rooms, invite others via Room ID |
+|  **Real-Time Editing** | Simultaneous editing with Operational Transformation (OT) |
+|  **User Presence** | See who is online with colored badges |
+|  **Live Chat** | Real-time chat panel alongside the editor |
+|  **File Tree** | Create, switch and delete multiple files per room |
+|  **Code Execution** | Run Python and JavaScript code directly in the browser |
+|  **16 Languages** | Syntax highlighting for Python, JS, TS, Java, C++, Go, Rust and more |
+|  **Version Snapshots** | Save and restore previous versions of your code |
+|  **Version History** | Browse and restore past snapshots |
+|  **Auto-Reconnect** | WebSocket auto-reconnects on disconnect |
+|  **Room Sharing** | Copy and share Room ID with one click |
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 ### Backend
 | Technology | Purpose |
@@ -62,7 +61,7 @@
 
 ---
 
-## 📁 Project Structure
+##  Project Structure
 ```
 collab-editor/
 ├── backend/
@@ -168,7 +167,7 @@ Frontend running at: http://127.0.0.1:5500/frontend/index.html
 
 ---
 
-## 🚀 Usage
+##  Usage
 
 ### 1. Register and Login
 - Open the app in your browser
@@ -222,7 +221,7 @@ Frontend running at: http://127.0.0.1:5500/frontend/index.html
 
 ---
 
-## 🌐 Supported Languages
+##  Supported Languages
 
 | Language | Syntax Highlighting | Execution |
 |---|---|---|
@@ -245,7 +244,7 @@ Frontend running at: http://127.0.0.1:5500/frontend/index.html
 
 ---
 
-## 🔒 Security Features
+##  Security Features
 
 - JWT token authentication on all routes
 - Password hashing with passlib
@@ -255,7 +254,7 @@ Frontend running at: http://127.0.0.1:5500/frontend/index.html
 
 ---
 
-## 🤝 Contributing
+##  Contributing
 
 Contributions are welcome!
 ```bash
@@ -274,7 +273,7 @@ This project is licensed under the MIT License.
 
 ---
 
-## 👩‍💻 Author
+##  Author
 
 **Ramya Sompalli**
 
@@ -283,5 +282,5 @@ GitHub: https://github.com/ramya-sompalli
 ---
 
 <div align="center">
-  <b>⭐ Star this repo if you found it helpful!</b>
+  <b> Star this repo if you found it helpful!</b>
 </div>

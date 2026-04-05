@@ -148,8 +148,7 @@ async function loadFile(file) {
 function connectWS(fileId) {
   if (ws) ws.close();
   const token = localStorage.getItem("token");
-  ws = new WebSocket(`ws://localhost:8000/ws/${ROOM_ID}/${fileId}?token=${token}`);
-
+  ws = new WebSocket(`wss://collab-editor-backend.onrender.com/ws/${ROOM_ID}/${fileId}?token=${token}`);
   ws.onopen = () => {
     document.getElementById("ws-status").textContent = "🟢 Connected";
   };

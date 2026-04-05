@@ -1,5 +1,7 @@
 from fastapi import FastAPI, WebSocket, WebSocketDisconnect, Query
 from fastapi.middleware.cors import CORSMiddleware
+from starlette.middleware.base import BaseHTTPMiddleware
+from starlette.requests import Request
 from database import engine, get_db
 from models import Base, File, Snapshot
 from websocket.manager import manager
@@ -13,13 +15,23 @@ Base.metadata.create_all(bind=engine)
 
 app = FastAPI(title="Collaborative Code Editor")
 
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],
-    allow_credentials=False,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
+# Custom CORS middleware that handles everything
+class CORSMiddlewareCustom(BaseHTTPMiddleware):
+    async def dispatch(self, request: Request, call_next):
+        if request.method == "OPTIONS":
+            from starlette.responses import Response
+            response = Response()
+            response.headers["Access-Control-Allow-Origin"] = "*"
+            response.headers["Access-Control-Allow-Methods"] = "*"
+            response.headers["Access-Control-Allow-Headers"] = "*"
+            return response
+        response = await call_next(request)
+        response.headers["Access-Control-Allow-Origin"] = "*"
+        response.headers["Access-Control-Allow-Methods"] = "*"
+        response.headers["Access-Control-Allow-Headers"] = "*"
+        return response
+
+app.add_middleware(CORSMiddlewareCustom)
 
 app.include_router(auth.router)
 app.include_router(rooms.router)
@@ -31,6 +43,10 @@ op_counters = {}
 @app.get("/")
 def root():
     return {"status": "CollabEditor API running ✅"}
+
+@app.get("/health")
+def health():
+    return {"status": "ok"}
 
 @app.websocket("/ws/{room_id}/{file_id}")
 async def websocket_endpoint(

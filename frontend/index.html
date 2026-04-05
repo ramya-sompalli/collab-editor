@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CollabEditor — Login</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="auth-wrapper">
+    <h1 style="color:#61dafb; margin-bottom:1.5rem;">💻 CollabEditor</h1>
+    <div class="auth-box">
+      <h2 id="auth-title">Login</h2>
+
+      <div id="email-field" style="display:none;">
+        <input type="email" id="email" placeholder="Email" />
+      </div>
+      <input type="text" id="username" placeholder="Username" />
+      <input type="password" id="password" placeholder="Password" />
+
+      <button class="btn btn-primary" id="auth-btn" style="width:100%;">Login</button>
+      <p class="auth-toggle" id="toggle-link">No account? Register</p>
+      <p id="auth-error" style="color:#e74c3c; font-size:13px; text-align:center;"></p>
+    </div>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>

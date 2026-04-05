@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>CollabEditor — Dashboard</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="dash-header">
+    <h1>💻 CollabEditor</h1>
+    <div style="display:flex; align-items:center; gap:1rem;">
+      <span id="username-display" style="color:#aaa;"></span>
+      <button class="btn btn-danger" id="logout-btn">Logout</button>
+    </div>
+  </div>
+
+  <div class="dash-body">
+    <!-- Create Room -->
+    <h2 style="color:#ccc; margin-bottom:0.75rem;">Create Room</h2>
+    <div class="create-row">
+      <input type="text" id="room-name" placeholder="Room name..." />
+      <select id="room-lang">
+  <option value="python">Python</option>
+  <option value="javascript">JavaScript</option>
+  <option value="typescript">TypeScript</option>
+  <option value="java">Java</option>
+  <option value="cpp">C++</option>
+  <option value="c">C</option>
+  <option value="csharp">C#</option>
+  <option value="go">Go</option>
+  <option value="rust">Rust</option>
+  <option value="php">PHP</option>
+  <option value="ruby">Ruby</option>
+  <option value="sql">SQL</option>
+  <option value="html">HTML</option>
+  <option value="css">CSS</option>
+  <option value="json">JSON</option>
+  <option value="markdown">Markdown</option>
+</select>
+      <button class="btn btn-success" id="create-btn">+ Create</button>
+    </div>
+
+    <!-- Join Room -->
+    <h2 style="color:#ccc; margin-bottom:0.75rem;">Join by Room ID</h2>
+    <div class="create-row" style="margin-bottom:2rem;">
+      <input type="text" id="join-room-id" placeholder="Paste Room ID here..." />
+      <button class="btn btn-primary" id="join-btn">Join Room</button>
+    </div>
+
+    <h2 style="margin-bottom:1rem; color:#ccc;">Your Rooms</h2>
+    <div class="rooms-grid" id="rooms-grid"></div>
+  </div>
+
+  <div id="toast"></div>
+
+  <script src="js/api.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

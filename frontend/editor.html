@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>CollabEditor</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.44.0/min/vs/loader.min.js"></script>
+  <style>
+    .remote-cursor { border-left: 2px solid #61dafb; }
+  </style>
+</head>
+<body>
+<div class="editor-layout">
+
+  <!-- Top Bar -->
+  <div class="topbar">
+    <span class="logo">💻 CollabEditor</span>
+    <span class="room-name" id="room-name-label">Loading...</span>
+    <span id="room-id-display" style="color:#555; font-size:11px;"></span>
+    <button id="copy-room-btn" class="btn" style="background:#444; font-size:12px; padding:3px 8px;">📋 Copy ID</button>
+   <select id="lang-select">
+  <option value="python">Python</option>
+  <option value="javascript">JavaScript</option>
+  <option value="typescript">TypeScript</option>
+  <option value="java">Java</option>
+  <option value="cpp">C++</option>
+  <option value="c">C</option>
+  <option value="csharp">C#</option>
+  <option value="go">Go</option>
+  <option value="rust">Rust</option>
+  <option value="php">PHP</option>
+  <option value="ruby">Ruby</option>
+  <option value="sql">SQL</option>
+  <option value="html">HTML</option>
+  <option value="css">CSS</option>
+  <option value="json">JSON</option>
+  <option value="markdown">Markdown</option>
+</select>
+    <button class="btn btn-success" id="run-btn">▶ Run</button>
+    <button class="btn btn-purple" id="snapshot-btn">💾 Snapshot</button>
+    <button class="btn" id="history-btn" style="background:#555;">🕓 History</button>
+    <span id="ws-status" style="font-size:12px; color:#888;">🔴 Connecting...</span>
+    <div class="presence-bar">
+      <span>Online:</span>
+      <div id="presence-users" style="display:flex; gap:6px;"></div>
+    </div>
+  </div>
+
+  <!-- Main Area -->
+  <div class="main-area">
+    <!-- File Tree -->
+    <div class="file-tree">
+      <div class="file-tree-header">
+        <span>📁 Files</span>
+        <button class="add-file-btn" id="add-file-btn">+</button>
+      </div>
+      <div id="file-list"></div>
+    </div>
+
+    <!-- Editor + Terminal -->
+    <div class="editor-panel">
+      <div id="monaco-container" style="flex:1;"></div>
+      <div class="terminal">
+        <div class="term-label">▶ Output</div>
+        <pre id="term-output">Run your code to see output here...</pre>
+      </div>
+    </div>
+
+    <!-- Chat -->
+    <div class="chat-panel">
+      <div class="chat-header">💬 Chat</div>
+      <div class="chat-messages" id="chat-messages"></div>
+      <div class="chat-input-row">
+        <input type="text" id="chat-input" placeholder="Message..." />
+        <button class="chat-send-btn" id="chat-send">➤</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- History Modal -->
+<div id="history-modal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.75); z-index:100; align-items:center; justify-content:center;">
+  <div style="background:#2d2d2d; border-radius:8px; padding:2rem; width:520px; max-height:70vh; overflow-y:auto;">
+    <div style="display:flex; justify-content:space-between; margin-bottom:1rem;">
+      <h3>🕓 Version History</h3>
+      <button id="close-history" style="background:none;border:none;color:#fff;font-size:20px;cursor:pointer;">✕</button>
+    </div>
+    <div id="history-list"></div>
+  </div>
+</div>
+
+<div id="toast"></div>
+
+<script src="js/api.js"></script>
+<script src="js/editor.js"></script>
+</body>
+</html>
